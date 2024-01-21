@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://brphi6q743drq"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_xfrnr"]
+[ext_resource type="Texture2D" uid="uid://drmnqkmotye3j" path="res://Assets/Textures/DALL·E 2024-01-21 16.46.29 - A background image for an arcade-style game, depicting a desolate cityscape with slightly ruined buildings. The scene should convey a sense of abandon.png" id="2_najs6"]
+[ext_resource type="Theme" uid="uid://ysho1eak7h2v" path="res://Assets/Resources/ButtonPlay.tres" id="3_5yiob"]
+[ext_resource type="AudioStream" uid="uid://1c2hgd8i0ufb" path="res://Assets/Audio/In a Heartbeat.mp3" id="4_rhgg2"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xfrnr")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 187.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_najs6")
+
+[node name="PlayButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 912.0
+offset_top = 555.0
+offset_right = 1035.0
+offset_bottom = 611.0
+size_flags_vertical = 6
+focus_neighbor_top = NodePath("../QuitButton")
+theme = ExtResource("3_5yiob")
+text = "Play"
+
+[node name="QuitButton" type="Button" parent="."]
+layout_mode = 2
+offset_left = 912.0
+offset_top = 616.875
+offset_right = 1035.0
+offset_bottom = 672.875
+size_flags_vertical = 6
+focus_neighbor_bottom = NodePath("../PlayButton")
+theme = ExtResource("3_5yiob")
+text = "Quit"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rhgg2")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]
