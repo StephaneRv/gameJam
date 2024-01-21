@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://brphi6q743drq"]
+[gd_scene load_steps=5 format=3 uid="uid://brphi6q743drq"]
 
-[ext_resource type="Script" path="res://Assets/MainMenu.gd" id="1_xfrnr"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_xfrnr"]
 [ext_resource type="Texture2D" uid="uid://drmnqkmotye3j" path="res://Assets/Textures/DALL·E 2024-01-21 16.46.29 - A background image for an arcade-style game, depicting a desolate cityscape with slightly ruined buildings. The scene should convey a sense of abandon.png" id="2_najs6"]
 [ext_resource type="Theme" uid="uid://ysho1eak7h2v" path="res://Assets/Resources/ButtonPlay.tres" id="3_5yiob"]
+[ext_resource type="AudioStream" uid="uid://1c2hgd8i0ufb" path="res://Assets/Audio/In a Heartbeat.mp3" id="4_rhgg2"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -46,5 +47,8 @@ focus_neighbor_bottom = NodePath("../PlayButton")
 theme = ExtResource("3_5yiob")
 text = "Quit"
 
-[connection signal="pressed" from="PlayButton" to="." method="_on_play_pressed"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rhgg2")
+
+[connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_pressed"]
