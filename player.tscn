@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl6vjtvbag2ne"]
+[gd_scene load_steps=10 format=3 uid="uid://cl6vjtvbag2ne"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_4xvek"]
 [ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="2_kfv3y"]
@@ -21,6 +21,19 @@ corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqvpy"]
 bg_color = Color(0.388235, 0.8, 0.372549, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tvq44"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_smmnk"]
+bg_color = Color(0.784314, 0, 0.223529, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -64,3 +77,12 @@ theme_override_styles/background = SubResource("StyleBoxFlat_07q5s")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eqvpy")
 value = 100.0
 show_percentage = false
+
+[node name="OverloadBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -143.0
+offset_top = -175.0
+offset_right = 144.0
+offset_bottom = -148.0
+theme_override_styles/background = SubResource("StyleBoxFlat_tvq44")
+theme_override_styles/fill = SubResource("StyleBoxFlat_smmnk")

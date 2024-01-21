@@ -13,6 +13,15 @@ func shoot():
 	new_bullet.global_rotation = %ShootingPoint.global_rotation
 	%ShootingPoint.add_child(new_bullet)
 
-
+	if GlobalVar.overloadScore >= 100 and GlobalVar.isOverload == false:
+		GlobalVar.isOverload = true
+		%OverloadTimer.start(4.0)
+		%Timer.wait_time = 0.10
+		
 func _on_timer_timeout():
 	shoot()
+
+func _on_overload_timer_timeout():
+	%Timer.wait_time = 0.33
+	GlobalVar.overloadScore = 0	
+	GlobalVar.isOverload = false

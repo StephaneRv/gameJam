@@ -18,6 +18,10 @@ func take_damage():
 
 	if health == 0:
 		queue_free()
+		GlobalVar.score += 1
+		if GlobalVar.isOverload == false:
+			GlobalVar.overloadScore += 10
+			
 
 		const SMOKE_SCENE = preload("res://smoke_explosion/smoke_explosion.tscn")
 		var smoke = SMOKE_SCENE.instantiate()

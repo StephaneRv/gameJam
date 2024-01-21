@@ -25,7 +25,14 @@ unique_name_in_owner = true
 position = Vector2(25, -9)
 
 [node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
 wait_time = 0.33
 autostart = true
 
+[node name="OverloadTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="OverloadTimer" to="." method="_on_overload_timer_timeout"]
