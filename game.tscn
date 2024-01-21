@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://n1l6vvywepiy"]
+[gd_scene load_steps=6 format=3 uid="uid://n1l6vvywepiy"]
 
 [ext_resource type="PackedScene" uid="uid://cl6vjtvbag2ne" path="res://player.tscn" id="1_nmgh3"]
 [ext_resource type="Script" path="res://game.gd" id="1_prpmr"]
-[ext_resource type="PackedScene" uid="uid://bs5aaf54bybar" path="res://tree.tscn" id="2_nfwf1"]
+[ext_resource type="PackedScene" path="res://tree.tscn" id="2_nfwf1"]
+[ext_resource type="PackedScene" uid="uid://bjylae60qg4da" path="res://Scenes/PauseMenu.tscn" id="4_1ergk"]
 
 [sub_resource type="Curve2D" id="Curve2D_5gcr4"]
 _data = {
@@ -56,33 +57,9 @@ position = Vector2(1647, 217)
 wait_time = 0.5
 autostart = true
 
-[node name="gameover" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
-visible = false
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="gameover"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.286275, 0.545098, 0.545098, 0.541176)
-
-[node name="Label" type="Label" parent="gameover/ColorRect"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -285.5
-offset_top = -68.5
-offset_right = 287.5
-offset_bottom = 68.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 100
-text = "Game Over !"
+[node name="PauseMenu" parent="CanvasLayer2" instance=ExtResource("4_1ergk")]
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

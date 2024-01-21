@@ -5,6 +5,8 @@
 [ext_resource type="Theme" uid="uid://cm70gl4f2urmt" path="res://Assets/Resources/PauseBackground.tres" id="1_y8p66"]
 
 [node name="PauseMenu" type="Control"]
+process_mode = 3
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
